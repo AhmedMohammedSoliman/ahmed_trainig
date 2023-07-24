@@ -16,6 +16,9 @@ class RegisterResponseModel {
         required this.id,
         required this.email,
         required this.updatedAt,
+        this.statusCode ,
+        this.message ,
+        this.error
     });
 
     String password;
@@ -26,6 +29,9 @@ class RegisterResponseModel {
     int id;
     String email;
     DateTime updatedAt;
+    String? statusCode ;
+    String? message ;
+    String? error ;
 
     factory RegisterResponseModel.fromJson(Map<dynamic, dynamic> json) => RegisterResponseModel(
         password: json["password"],
@@ -36,6 +42,9 @@ class RegisterResponseModel {
         id: json["id"],
         email: json["email"],
         updatedAt: DateTime.parse(json["updatedAt"]),
+        statusCode: json["statusCode"],
+        message: json["message"],
+        error: json["error"]
     );
 
     Map<dynamic, dynamic> toJson() => {
@@ -47,5 +56,8 @@ class RegisterResponseModel {
         "id": id,
         "email": email,
         "updatedAt": updatedAt.toIso8601String(),
+        "statusCode" : statusCode ,
+        "message" : message ,
+        "error" : error
     };
 }
