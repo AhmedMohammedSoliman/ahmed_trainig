@@ -11,8 +11,9 @@ void main()async {
   Prefs.prefs = await SharedPreferences.getInstance();
   runApp(
     GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Application",
-      initialRoute: Prefs.getToken(key: "token") != null ? Routes.HOME : Routes.LOGIN,
+      initialRoute: Prefs.getToken(key: "token") != null ? Routes.HOME : Routes.TEST,
       getPages: AppPages.routes,
     ),
   );
